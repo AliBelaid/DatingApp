@@ -42,7 +42,7 @@ namespace DatingApp.api.Controllers
             var CreateUser = await _repo.Register(userToCreate, userForRegister.Password);
             return StatusCode(201);
         }
-[HttpPost("login")]
+[HttpPost("Login")]
 public async Task <IActionResult> Login(UserToLogin userToLogin){
 var user=await _repo.Login(userToLogin.UserName,userToLogin.Password);
 if(user==null){
@@ -55,7 +55,7 @@ new Claim(ClaimTypes.Name,user.UserName),
 
 
 };
-var key=new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_Config.GetSection("AppSetting:Token").Value));
+var key=new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_Config.GetSection("appsettings:Token").Value));
 var creds=new SigningCredentials(key,SecurityAlgorithms.HmacSha512Signature);
 
 var tokendescriper=new SecurityTokenDescriptor{
@@ -63,6 +63,7 @@ var tokendescriper=new SecurityTokenDescriptor{
    Expires=DateTime.Now.AddDays(1),
    SigningCredentials=creds
 };
+
 var TokenHandler=new JwtSecurityTokenHandler();
 var token=TokenHandler.CreateToken(tokendescriper);
 
