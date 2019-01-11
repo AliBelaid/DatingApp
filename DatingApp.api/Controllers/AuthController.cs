@@ -55,12 +55,12 @@ new Claim(ClaimTypes.Name,user.UserName),
 
 
 };
-var key=new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_Config.GetSection("appsettings:Token").Value));
+var key=new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_Config.GetSection("AppSetting:Token").Value));
 var creds=new SigningCredentials(key,SecurityAlgorithms.HmacSha512Signature);
 
 var tokendescriper=new SecurityTokenDescriptor{
    Subject =new ClaimsIdentity(claims) ,
-   Expires=DateTime.Now.AddDays(1),
+   Expires=DateTime.Now.AddSeconds(2*60),
    SigningCredentials=creds
 };
 
