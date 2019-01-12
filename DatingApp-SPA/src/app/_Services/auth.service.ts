@@ -20,7 +20,10 @@ return  this.http.post(this.UrlPath + 'Login', model)
   }
 }));
 }
+Register(model: any) {
+return  this.http.post(this.UrlPath + 'Register', model);
 
+}
 
 
 }

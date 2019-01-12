@@ -3,7 +3,13 @@
   <label for="name" class="sr-only">User Name</label>
   <input type="name" id="inputEmail" class="form-control"   placeholder="User Name" required="" autofocus=""
    [(ngModel)]="model.UserName" required name="UserName">
-  <label for="inputPassword" class="sr-only">Password</label>
+   <!-- <div class="form-group">
+<label for="favouriteValues"> what is your favourite values?</label>
+<select id="favouriteValues" class="form-control">
+  <option *ngFor="let value of ValuesFromHome" [value]= "value">{{value.name}}</option>
+</select>
+   </div> -->
+   <label for="inputPassword" class="sr-only">Password</label>
   <input type="password" id="inputPassword" class="form-control" placeholder="Password" required=""  [(ngModel)]="model.Password" required name="Password">
   <div class="checkbox mb-3">
     <label>

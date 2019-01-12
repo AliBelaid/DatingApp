@@ -22,7 +22,10 @@ getValues() {
 }
 
   RegisterToggle() {
-this.registerState = !this.registerState;
+this.registerState = true;
 
+  }
+  CancelModeRegister( stateRegister: boolean) {
+    this.registerState = stateRegister;
   }
 }

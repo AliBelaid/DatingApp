@@ -11,10 +11,10 @@
 
 <div *ngIf="registerState" class="container">
   <div class="row justify-content-center">
-    <app-register></app-register>
+    <app-register   (CancelFromRegister)="CancelModeRegister($event)"></app-register>
   </div>
 </div>
 </div>
-<p *ngFor = "let value of values">
+<!-- <p *ngFor = "let value of values">
   {{value.id}},{{value.name}}
-  </p>
+  </p> -->
